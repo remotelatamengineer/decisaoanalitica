@@ -103,7 +103,7 @@ body {
   font-size: 12px;
   font-weight: 400;
   opacity: 0.8;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 .nav-menu a:hover {
@@ -111,19 +111,39 @@ body {
   color: var(--apple-blue);
 }
 
+.nav-menu a.apple-button-small,
 .apple-button-small {
   background-color: var(--apple-blue);
-  color: #ffffff;
+  color: #ffffff !important;
   font-size: 12px;
   font-weight: 500;
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 980px;
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  opacity: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.15s ease;
 }
 
+.nav-menu a.apple-button-small:hover,
 .apple-button-small:hover {
   background-color: var(--apple-blue-hover);
+  color: #ffffff !important;
+  opacity: 0.95;
+}
+
+.nav-menu a.apple-button-small:active,
+.apple-button-small:active {
+  transform: scale(0.97);
+}
+
+.nav-btn-icon {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 
 /* Typography Elements */
@@ -738,7 +758,12 @@ body {
   .apple-grid, .sim-body, .form-row, .metrics-grid {
     grid-template-columns: 1fr;
   }
-  .nav-menu {
+  .nav-menu a:not(.apple-button-small) {
     display: none;
+  }
+  .footer-bottom {
+    flex-direction: column-reverse;
+    gap: 12px;
+    text-align: center;
   }
 }
